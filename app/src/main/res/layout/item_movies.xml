@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_movies"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_8"
+    app:cardCornerRadius="@dimen/dimen_8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/dimen_8" />
+
+        <TextView
+            android:id="@+id/label_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_toEndOf="@id/movie_image"
+            android:text="Title:" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_toEndOf="@id/label_title"
+            android:text="Mortal Kombat" />
+
+        <TextView
+            android:id="@+id/release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_title"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_toEndOf="@id/movie_image"
+            android:text="Release Date:" />
+
+        <TextView
+            android:id="@+id/release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_title"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_toEndOf="@id/release"
+            android:text="2021-04-07" />
+
+        <TextView
+            android:id="@+id/vote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/release"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_toEndOf="@id/movie_image"
+            android:text="Stars" />
+
+        <TextView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/release"
+            android:layout_margin="@dimen/dimen_8"
+            android:layout_toEndOf="@id/vote"
+            android:text="7.7" />
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
