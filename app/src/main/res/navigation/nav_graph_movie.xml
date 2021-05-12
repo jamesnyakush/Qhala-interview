@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_movie"
+    app:startDestination="@id/popularMovie">
+
+    <fragment
+        android:id="@+id/popularMovie"
+        android:name="com.qhala.ui.movie.fragment.PopularMovie"
+        android:label="popular_movie_fragment"
+        tools:layout="@layout/popular_movie_fragment" >
+        <action
+            android:id="@+id/action_popularMovie_to_singleMovie"
+            app:destination="@id/singleMovie" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleMovie"
+        android:name="com.qhala.ui.movie.fragment.SingleMovie"
+        android:label="single_movie_fragment"
+        tools:layout="@layout/single_movie_fragment" />
+</navigation>
