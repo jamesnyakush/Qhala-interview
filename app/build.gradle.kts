@@ -4,6 +4,7 @@ plugins {
     id(BuildPlugins.kapt)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
+    id ("kotlin-android-extensions")
 }
 
 android {
@@ -42,6 +43,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
