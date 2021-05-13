@@ -22,7 +22,7 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
     )
     val movies = listOf(
         Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
+        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Kifuua inauma",false,2.2,2222),
         Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
         Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
         Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),

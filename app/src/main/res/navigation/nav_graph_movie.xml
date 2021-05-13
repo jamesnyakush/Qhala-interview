@@ -9,7 +9,7 @@
         android:id="@+id/popularMovie"
         android:name="com.qhala.ui.movie.fragment.PopularMovie"
         android:label="popular_movie_fragment"
-        tools:layout="@layout/popular_movie_fragment" >
+        tools:layout="@layout/popular_movie_fragment">
         <action
             android:id="@+id/action_popularMovie_to_singleMovie"
             app:destination="@id/singleMovie" />
@@ -18,5 +18,9 @@
         android:id="@+id/singleMovie"
         android:name="com.qhala.ui.movie.fragment.SingleMovie"
         android:label="single_movie_fragment"
-        tools:layout="@layout/single_movie_fragment" />
+        tools:layout="@layout/single_movie_fragment">
+        <argument
+            android:name="movie"
+            app:argType="com.qhala.data.db.entity.Movie" />
+    </fragment>
 </navigation>
