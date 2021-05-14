@@ -25,7 +25,7 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
     private lateinit var binding: PopularMovieFragmentBinding
 
     private val viewModel by viewModels<MovieViewModel>()
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -40,11 +40,16 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
             when (it) {
                 is Resource.Success -> {
                     lifecycleScope.launch {
+
+                        viewModel.saveMovie(it.value.results)
+
                         binding.recyclerViewMovies.apply {
                             layoutManager = LinearLayoutManager(requireContext())
                             hasFixedSize()
                             adapter = MovieAdapter(it.value.results)
                         }
+
+                        viewModel.fetchMovies()
                     }
                 }
                 is Resource.Failure -> {

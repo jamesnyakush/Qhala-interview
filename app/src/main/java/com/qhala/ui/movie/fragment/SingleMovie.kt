@@ -1,7 +1,9 @@
 package com.qhala.ui.movie.fragment
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -11,6 +13,8 @@ import com.qhala.R
 import com.qhala.data.db.entity.Movie
 import com.qhala.databinding.SingleMovieFragmentBinding
 import com.qhala.util.loadImage
+import com.qhala.util.simpleFormatedDate
+import com.qhala.util.simpleFormatedDates
 import dagger.hilt.android.AndroidEntryPoint
 
 

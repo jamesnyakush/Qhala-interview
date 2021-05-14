@@ -4,7 +4,7 @@ plugins {
     id(BuildPlugins.kapt)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
-    id ("kotlin-android-extensions")
+    id("kotlin-android-extensions")
 }
 
 android {
@@ -19,6 +19,12 @@ android {
         versionName = AndroidSDK.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     buildTypes {
@@ -88,8 +94,8 @@ dependencies {
 
     api(Libraries.preference)
 
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor( "com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation("androidx.room:room-runtime:2.2.5")
     kapt("androidx.room:room-compiler:2.2.5")
