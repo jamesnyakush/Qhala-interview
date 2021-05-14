@@ -4,6 +4,7 @@ plugins {
     id(BuildPlugins.kapt)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
+    id ("kotlin-android-extensions")
 }
 
 android {
@@ -42,6 +43,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -82,4 +87,7 @@ dependencies {
     api(Libraries.timber)
 
     api(Libraries.preference)
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor( "com.github.bumptech.glide:compiler:4.12.0")
 }

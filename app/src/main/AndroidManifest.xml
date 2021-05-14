@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qhala">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".QhalaApp"
         android:allowBackup="true"
@@ -12,14 +14,16 @@
         android:theme="@style/Theme.Qhala">
 
         <activity android:name="com.qhala.ui.splashscreen.SplashScreen">
+
+        </activity>
+
+        <activity android:name="com.qhala.ui.movie.activity.Movie">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.qhala.ui.movie.activity.Movie"/>
     </application>
 
 </manifest>
