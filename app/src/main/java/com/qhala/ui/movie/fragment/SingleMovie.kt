@@ -25,8 +25,6 @@ class SingleMovie : Fragment(R.layout.single_movie_fragment) {
 
     private lateinit var movie: Movie
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = SingleMovieFragmentBinding.bind(view)
@@ -43,9 +41,5 @@ class SingleMovie : Fragment(R.layout.single_movie_fragment) {
         binding.overview.text = movie.overview
         binding.release.text = movie.release_date
         binding.voteAverage.rating = movie.vote_average.toFloat()
-        binding.voteCount.text = movie.vote_count.toString()
-
-
-
     }
 }
