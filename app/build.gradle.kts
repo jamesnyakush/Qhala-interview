@@ -72,6 +72,7 @@ dependencies {
     // ViewModel and LiveData
     api(Libraries.lifecycle_extensions)
     api(Libraries.lifecycle_viewmodel)
+    api(Libraries.livedata)
 
     //New Material Design
     api(Libraries.material)
@@ -92,9 +93,7 @@ dependencies {
     // Timber For Logging
     api(Libraries.timber)
 
-    api(Libraries.preference)
     api(Libraries.datastore)
-    api(Libraries.livedata)
 
     // Glide
     implementation(Libraries.glide)
