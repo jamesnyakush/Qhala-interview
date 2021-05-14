@@ -4,7 +4,7 @@ plugins {
     id(BuildPlugins.kapt)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
-    id("kotlin-android-extensions")
+    id(BuildPlugins.extensions)
 }
 
 android {
@@ -41,8 +41,6 @@ android {
 
         }
     }
-
-
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -83,7 +81,7 @@ dependencies {
     api(Libraries.navigation_fragment)
     api(Libraries.navigation_ui)
 
-    //
+    // Retrofit For Network Calls
     implementation(Libraries.retrofit)
     implementation(Libraries.converter_gson)
 
@@ -91,17 +89,19 @@ dependencies {
     implementation(Libraries.hiltAndroid)
     kapt(Libraries.hiltAndroidCompiler)
 
-
+    // Timber For Logging
     api(Libraries.timber)
 
     api(Libraries.preference)
     api(Libraries.datastore)
     api(Libraries.livedata)
 
-    implementation("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    // Glide
+    implementation(Libraries.glide)
+    annotationProcessor(Libraries.glideCompiler)
 
-    implementation("androidx.room:room-runtime:2.2.5")
-    kapt("androidx.room:room-compiler:2.2.5")
-    implementation("androidx.room:room-ktx:2.2.5")
+    // Room Database
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
+    kapt(Libraries.roomCompiler)
 }

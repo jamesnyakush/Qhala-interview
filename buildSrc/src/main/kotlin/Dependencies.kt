@@ -42,6 +42,7 @@ object BuildPlugins {
     const val crashlytics = "com.google.firebase.crashlytics"
     const val safeArgs = "androidx.navigation.safeargs.kotlin"
     const val kapt = "kotlin-kapt"
+    const val extensions = "kotlin-android-extensions"
 
 }
 
@@ -83,16 +84,20 @@ object Libraries {
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
     const val hiltAndroidCompiler =
         "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
-//    const val hiltViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
-//    const val hiltCompiler = "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
 
-
+    //Timber For Logging
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
     const val datastore = "androidx.datastore:datastore-preferences:1.0.0-alpha05"
     const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
+    const val glide = "com.github.bumptech.glide:glide:4.12.0"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:4.12.0"
+
+    const val roomRuntime = "androidx.room:room-runtime:2.2.5"
+    const val roomCompiler = "androidx.room:room-compiler:2.2.5"
+    const val roomKtx = "androidx.room:room-ktx:2.2.5"
 
 }
 

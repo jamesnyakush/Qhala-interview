@@ -91,18 +91,12 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <RatingBar
+                <TextView
                     android:id="@+id/vote_average"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/label_vote_average"
-                    android:layout_margin="@dimen/dimen_8"
-                    android:max="10"
-                    android:rating="3.5"
-                    android:scaleX=".5"
-                    android:scaleY=".5"
-                    android:transformPivotX="0dp"
-                    android:transformPivotY="0dp" />
+                    android:layout_margin="@dimen/dimen_8"/>
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
