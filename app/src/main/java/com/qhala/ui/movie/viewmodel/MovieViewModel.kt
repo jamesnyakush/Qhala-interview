@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.qhala.data.db.entity.Movie
 import com.qhala.data.network.MovieResponse
 import com.qhala.data.repository.MovieRepository
 import com.qhala.data.repository.Resource
@@ -24,6 +25,14 @@ class MovieViewModel @Inject constructor(
     fun fetchCourses(key: String) = viewModelScope.launch {
         _movieResponse.value = Resource.Loading
         _movieResponse.value = repository.getMovies(key)
+    }
+
+    fun saveMovie(movies: List<Movie>) = viewModelScope.launch {
+        repository.saveMovie(movies)
+    }
+
+    fun fetchMovies() {
+        repository.fetchMovies()
     }
 
 }
