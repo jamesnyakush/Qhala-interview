@@ -22,5 +22,8 @@
         <argument
             android:name="movie"
             app:argType="com.qhala.data.db.entity.Movie" />
+        <action
+            android:id="@+id/action_singleMovie_to_popularMovie"
+            app:destination="@id/popularMovie" />
     </fragment>
 </navigation>

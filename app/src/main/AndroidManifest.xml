@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Qhala">
 
-        <activity android:name="com.qhala.ui.splashscreen.SplashScreen">
-
-        </activity>
 
         <activity android:name="com.qhala.ui.movie.activity.Movie">
             <intent-filter>

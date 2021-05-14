@@ -1,108 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_grey"
-    android:orientation="vertical"
     tools:context="com.qhala.ui.movie.fragment.SingleMovie">
 
-    <ImageView
-        android:id="@+id/banner"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="@dimen/dimen_8"
-        android:scaleType="fitXY" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_8"
-        app:cardCornerRadius="@dimen/dimen_8">
-
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/dimen_8"
+            android:scaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/label_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Title:"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            app:cardCornerRadius="@dimen/dimen_8">
 
-            <TextView
-                android:id="@+id/title"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/label_title"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Mortal Kombat" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/label_overview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Overview:"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/label_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Title:"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/overview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/label_overview"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Mortal Kombat" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/label_title"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Mortal Kombat" />
 
-            <TextView
-                android:id="@+id/label_release_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/overview"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Release Date:"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/label_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Overview:"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/release"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/label_release_date"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Mortal Kombat" />
+                <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/label_overview"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Mortal Kombat" />
 
-            <TextView
-                android:id="@+id/label_vote_average"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/release"
-                android:layout_margin="@dimen/dimen_8"
-                android:text="Vote Average:"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/label_release_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/overview"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Release Date:"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-            <RatingBar
-                android:id="@+id/vote_average"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/label_vote_average"
-                android:layout_margin="@dimen/dimen_8"
-                android:max="10"
-                android:rating="3.5"
-                android:scaleX=".5"
-                android:scaleY=".5"
-                android:transformPivotX="0dp"
-                android:transformPivotY="0dp" />
+                <TextView
+                    android:id="@+id/release"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/label_release_date"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Mortal Kombat" />
 
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/label_vote_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/release"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:text="Vote Average:"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
+                <RatingBar
+                    android:id="@+id/vote_average"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/label_vote_average"
+                    android:layout_margin="@dimen/dimen_8"
+                    android:max="10"
+                    android:rating="3.5"
+                    android:scaleX=".5"
+                    android:scaleY=".5"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp" />
 
-</LinearLayout>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/back_to_popular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            android:text="Back"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -90,6 +90,8 @@ object Libraries {
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
+    const val datastore = "androidx.datastore:datastore-preferences:1.0.0-alpha05"
+    const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
 
 }

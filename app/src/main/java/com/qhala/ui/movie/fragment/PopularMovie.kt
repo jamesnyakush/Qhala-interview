@@ -8,15 +8,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qhala.R
-import com.qhala.data.db.entity.Movie
-import com.qhala.data.network.ApiClient
 import com.qhala.data.repository.Resource
 import com.qhala.databinding.PopularMovieFragmentBinding
 import com.qhala.ui.movie.adapter.MovieAdapter
 import com.qhala.ui.movie.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 import timber.log.Timber
 
 @AndroidEntryPoint

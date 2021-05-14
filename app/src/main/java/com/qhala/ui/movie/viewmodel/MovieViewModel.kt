@@ -1,26 +1,27 @@
 package com.qhala.ui.movie.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.qhala.data.db.entity.Movie
 import com.qhala.data.network.MovieResponse
 import com.qhala.data.repository.MovieRepository
 import com.qhala.data.repository.Resource
+import com.qhala.util.PrefsStore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    private val repository: MovieRepository
+    private val repository: MovieRepository,
+    private val prefsStore: PrefsStore,
 ) : ViewModel() {
 
     private val _movieResponse: MutableLiveData<Resource<MovieResponse>> = MutableLiveData()
 
     val movieResponse: LiveData<Resource<MovieResponse>>
         get() = _movieResponse
+
+    val darkThemeEnabled = prefsStore.isNightMode().asLiveData()
 
     fun fetchCourses(key: String) = viewModelScope.launch {
         _movieResponse.value = Resource.Loading
@@ -33,6 +34,12 @@ class MovieViewModel @Inject constructor(
 
     fun fetchMovies() {
         repository.fetchMovies()
+    }
+
+    fun toggleNightMode() {
+        viewModelScope.launch {
+            prefsStore.toggleNightMode()
+        }
     }
 
 }
