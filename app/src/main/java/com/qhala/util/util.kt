@@ -1,10 +1,6 @@
 package com.qhala.util
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 val IMAGE_PREFIX = "https://image.tmdb.org/t/p/"
@@ -19,11 +15,6 @@ fun simpleFormatedDate(date: Date): String {
     return target.format(date)
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
-fun simpleFormatedDates(date: String): LocalDate {
+const val PREFS_NAME = "movies_preferences"
 
-
-    val formatter = DateTimeFormatter.ofPattern("EE, d MMM yyyy",Locale.getDefault())
-    val date = LocalDate.parse(date, formatter)
-    return date
-}
+const val STORE_NAME = "movie_data_store"

@@ -42,6 +42,8 @@ android {
         }
     }
 
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -93,6 +95,8 @@ dependencies {
     api(Libraries.timber)
 
     api(Libraries.preference)
+    api(Libraries.datastore)
+    api(Libraries.livedata)
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")

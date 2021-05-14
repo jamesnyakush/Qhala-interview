@@ -26,6 +26,4 @@ object DatabaseModule {
     @Singleton
     fun providesCourseDao(appDatabase: AppDatabase): MovieDao =
         appDatabase.movieDao()
-
-
 }
