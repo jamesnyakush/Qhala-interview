@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@color/bg_grey"
+    android:orientation="vertical"
     tools:context="com.qhala.ui.movie.fragment.SingleMovie">
 
     <ImageView
+        android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:scaleType="fitXY"
+        android:layout_margin="@dimen/dimen_8"
+        android:layout_height="200dp" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -27,16 +30,95 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dimen_8"
-                android:text="Title:" />
+                android:text="Title:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/label_title"
                 android:layout_margin="@dimen/dimen_8"
-                android:layout_toEndOf="@id/label_title"
                 android:text="Mortal Kombat" />
 
+            <TextView
+                android:id="@+id/label_overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Overview:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/label_overview"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Mortal Kombat" />
+
+            <TextView
+                android:id="@+id/label_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/overview"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Release Date:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/release"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/label_release_date"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Mortal Kombat" />
+
+            <TextView
+                android:id="@+id/label_vote_average"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/release"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Vote Average:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <RatingBar
+                android:id="@+id/vote_average"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                android:layout_below="@id/label_vote_average"
+                android:layout_margin="@dimen/dimen_8"
+                android:rating="3.5"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp" />
+
+            <TextView
+                android:id="@+id/label_vote_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vote_average"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Vote Count:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vote_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/label_vote_count"
+                android:layout_margin="@dimen/dimen_8"
+                android:text="Mortal Kombat" />
 
 
         </RelativeLayout>

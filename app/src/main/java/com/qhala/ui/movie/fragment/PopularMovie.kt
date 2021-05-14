@@ -3,48 +3,55 @@ package com.qhala.ui.movie.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qhala.R
 import com.qhala.data.db.entity.Movie
+import com.qhala.data.network.ApiClient
+import com.qhala.data.repository.Resource
 import com.qhala.databinding.PopularMovieFragmentBinding
 import com.qhala.ui.movie.adapter.MovieAdapter
+import com.qhala.ui.movie.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import timber.log.Timber
 
 @AndroidEntryPoint
 class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
 
     private lateinit var binding: PopularMovieFragmentBinding
 
-    val gen = listOf(
-        1,
-        2,
-        3
-    )
-    val movies = listOf(
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Kifuua inauma",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222),
-        Movie(true,"",gen,1,"Tom Clancy's Without Remorse","Tom Clancy's Without Remorse","Tom Clancy's Without Remorse",5972.653,"","2021-04-29","Tom Clancy's Without Remorse",false,2.2,2222)
-    )
-
+    private val viewModel by viewModels<MovieViewModel>()
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = PopularMovieFragmentBinding.bind(view)
 
-        binding.recyclerViewMovies.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            hasFixedSize()
-            adapter = MovieAdapter(movies)
-        }
+        observeMovies()
+        viewModel.fetchCourses("")
+    }
+
+    private fun observeMovies() {
+        viewModel.movieResponse.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is Resource.Success -> {
+                    lifecycleScope.launch {
+                        binding.recyclerViewMovies.apply {
+                            layoutManager = LinearLayoutManager(requireContext())
+                            hasFixedSize()
+                            adapter = MovieAdapter(it.value.results)
+                        }
+                    }
+                }
+                is Resource.Failure -> {
+                    Timber.d("Failed Fetching")
+                }
+                else -> Timber.d("No Internet")
+            }
+        })
     }
 }
