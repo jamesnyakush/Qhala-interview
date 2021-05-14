@@ -7,13 +7,16 @@ object Versions {
     const val support = "1.0.0"
     const val coroutines = "1.3.0"
     const val lifecycle = "2.1.0"
+    const val livedata = "2.2.0"
     const val material = "1.1.0"
     const val navigation = "2.3.4"
     const val retrofit = "2.6.0"
     const val timber = "4.7.1"
-    const val preference = "1.1.1"
+    const val preference = "1.0.0-alpha05"
     const val okHttp = "4.10.0-RC1"
     const val hiltVersion = "2.35.1"
+    const val glide = "4.12.0"
+    const val room = "2.2.5"
 
     const val junit4 = "4.13.1"
     const val testRunner = "1.1.0"
@@ -42,6 +45,7 @@ object BuildPlugins {
     const val crashlytics = "com.google.firebase.crashlytics"
     const val safeArgs = "androidx.navigation.safeargs.kotlin"
     const val kapt = "kotlin-kapt"
+    const val extensions = "kotlin-android-extensions"
 
 }
 
@@ -64,6 +68,7 @@ object Libraries {
     const val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycle_viewmodel =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.livedata}"
 
     //New Material Design
     const val material = "com.google.android.material:material:${Versions.material}"
@@ -83,16 +88,18 @@ object Libraries {
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
     const val hiltAndroidCompiler =
         "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
-//    const val hiltViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
-//    const val hiltCompiler = "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
 
-
+    //Timber For Logging
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
-    const val preference = "androidx.preference:preference-ktx:${Versions.preference}"
-    const val datastore = "androidx.datastore:datastore-preferences:1.0.0-alpha05"
-    const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    const val datastore = "androidx.datastore:datastore-preferences:${Versions.preference}"
 
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:$${Versions.glide}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
 
 }
 

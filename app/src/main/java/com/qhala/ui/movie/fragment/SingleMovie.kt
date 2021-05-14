@@ -2,6 +2,7 @@ package com.qhala.ui.movie.fragment
 
 import android.os.Bundle
 import android.view.View
+import android.widget.RatingBar
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
@@ -39,7 +40,7 @@ class SingleMovie : Fragment(R.layout.single_movie_fragment) {
         binding.title.text = movie.title
         binding.overview.text = movie.overview
         binding.release.text = movie.release_date
-        binding.voteAverage.rating = movie.vote_average.toFloat()
+        binding.voteAverage.text = movie.vote_average.toString()
 
         binding.backToPopular.setOnClickListener {
             val action = SingleMovieDirections.actionSingleMovieToPopularMovie()
