@@ -5,6 +5,8 @@ plugins {
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
     id(BuildPlugins.extensions)
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -25,6 +27,8 @@ android {
                 arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
+
+        ndkVersion = "22.1.7171670"
     }
 
     buildTypes {
@@ -42,6 +46,13 @@ android {
         }
     }
 
+
+
+    externalNativeBuild {
+        cmake {
+            path("CMakeLists.txt")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -88,6 +99,8 @@ dependencies {
 
     // Dagger Hilt
     implementation(Libraries.hiltAndroid)
+    implementation("com.google.firebase:firebase-crashlytics:17.4.1")
+    implementation("com.google.firebase:firebase-analytics:18.0.3")
     kapt(Libraries.hiltAndroidCompiler)
 
     // Timber For Logging
@@ -97,7 +110,7 @@ dependencies {
 
     // Glide
     implementation(Libraries.glide)
-    annotationProcessor(Libraries.glideCompiler)
+    kapt(Libraries.glideCompiler)
 
     // Room Database
     implementation(Libraries.roomKtx)
