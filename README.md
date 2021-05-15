@@ -1,7 +1,9 @@
 ## Qhala Interview
 
 ## Screenshots
-
+| Movies | Movie Detail |
+| ------ | ----- |
+| ![Movies](/art/moviedark.png) | ![Single Movie](/art/singlemoviedark.png) | 
 
 ### Prerequisites 
 
