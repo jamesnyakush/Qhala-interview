@@ -2,6 +2,7 @@ package com.qhala.ui.movie.fragment
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -30,7 +31,9 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
         binding = PopularMovieFragmentBinding.bind(view)
 
         observeMovies()
-        viewModel.fetchCourses(Keys.apiKey())
+        viewModel.fetchMovies(Keys.apiKey())
+
+
     }
 
     private fun observeMovies() {
@@ -47,7 +50,7 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
                             adapter = MovieAdapter(it.value.results)
                         }
 
-                        viewModel.fetchMovies()
+                        viewModel.fetchMoviesOffline()
                     }
                 }
                 is Resource.Failure -> {
@@ -57,4 +60,5 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
             }
         })
     }
+
 }
