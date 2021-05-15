@@ -3,7 +3,7 @@
 ## Screenshots
 | Movies | Movie Detail |
 | ------ | ----- |
-| ![Movies](/art/moviedark.png) | ![Single Movie](/art/singlemoviedark.png) | 
+| ![Movies](/art/moviesdark.png) | ![Single Movie](/art/singlemoviedark.png) | 
 
 ### Prerequisites 
 
