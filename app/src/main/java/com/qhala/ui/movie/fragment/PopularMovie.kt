@@ -12,6 +12,7 @@ import com.qhala.data.repository.Resource
 import com.qhala.databinding.PopularMovieFragmentBinding
 import com.qhala.ui.movie.adapter.MovieAdapter
 import com.qhala.ui.movie.viewmodel.MovieViewModel
+import com.qhala.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -29,7 +30,7 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
         binding = PopularMovieFragmentBinding.bind(view)
 
         observeMovies()
-        viewModel.fetchCourses("")
+        viewModel.fetchCourses(Keys.apiKey())
     }
 
     private fun observeMovies() {

@@ -25,6 +25,8 @@ android {
                 arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
+
+        ndkVersion = "22.1.7171670"
     }
 
     buildTypes {
@@ -42,6 +44,13 @@ android {
         }
     }
 
+
+
+    externalNativeBuild {
+        cmake {
+            path("CMakeLists.txt")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -97,7 +106,7 @@ dependencies {
 
     // Glide
     implementation(Libraries.glide)
-    annotationProcessor(Libraries.glideCompiler)
+    kapt(Libraries.glideCompiler)
 
     // Room Database
     implementation(Libraries.roomKtx)
