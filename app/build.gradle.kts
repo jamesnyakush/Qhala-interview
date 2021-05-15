@@ -4,7 +4,7 @@ plugins {
     id(BuildPlugins.kapt)
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
-    id ("kotlin-android-extensions")
+    id(BuildPlugins.extensions)
 }
 
 android {
@@ -19,6 +19,14 @@ android {
         versionName = AndroidSDK.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+
+        ndkVersion = "22.1.7171670"
     }
 
     buildTypes {
@@ -36,6 +44,13 @@ android {
         }
     }
 
+
+
+    externalNativeBuild {
+        cmake {
+            path("CMakeLists.txt")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -66,6 +81,7 @@ dependencies {
     // ViewModel and LiveData
     api(Libraries.lifecycle_extensions)
     api(Libraries.lifecycle_viewmodel)
+    api(Libraries.livedata)
 
     //New Material Design
     api(Libraries.material)
@@ -75,7 +91,7 @@ dependencies {
     api(Libraries.navigation_fragment)
     api(Libraries.navigation_ui)
 
-    //
+    // Retrofit For Network Calls
     implementation(Libraries.retrofit)
     implementation(Libraries.converter_gson)
 
@@ -83,11 +99,17 @@ dependencies {
     implementation(Libraries.hiltAndroid)
     kapt(Libraries.hiltAndroidCompiler)
 
-
+    // Timber For Logging
     api(Libraries.timber)
 
-    api(Libraries.preference)
+    api(Libraries.datastore)
 
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor( "com.github.bumptech.glide:compiler:4.12.0")
+    // Glide
+    implementation(Libraries.glide)
+    kapt(Libraries.glideCompiler)
+
+    // Room Database
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
+    kapt(Libraries.roomCompiler)
 }

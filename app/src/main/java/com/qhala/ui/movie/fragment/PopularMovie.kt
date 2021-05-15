@@ -8,15 +8,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qhala.R
-import com.qhala.data.db.entity.Movie
-import com.qhala.data.network.ApiClient
 import com.qhala.data.repository.Resource
 import com.qhala.databinding.PopularMovieFragmentBinding
 import com.qhala.ui.movie.adapter.MovieAdapter
 import com.qhala.ui.movie.viewmodel.MovieViewModel
+import com.qhala.util.Keys
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -25,14 +23,14 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
     private lateinit var binding: PopularMovieFragmentBinding
 
     private val viewModel by viewModels<MovieViewModel>()
-    
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = PopularMovieFragmentBinding.bind(view)
 
         observeMovies()
-        viewModel.fetchCourses("")
+        viewModel.fetchCourses(Keys.apiKey())
     }
 
     private fun observeMovies() {
@@ -40,11 +38,16 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
             when (it) {
                 is Resource.Success -> {
                     lifecycleScope.launch {
+
+                        viewModel.saveMovie(it.value.results)
+
                         binding.recyclerViewMovies.apply {
                             layoutManager = LinearLayoutManager(requireContext())
                             hasFixedSize()
                             adapter = MovieAdapter(it.value.results)
                         }
+
+                        viewModel.fetchMovies()
                     }
                 }
                 is Resource.Failure -> {
