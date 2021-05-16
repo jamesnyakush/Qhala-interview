@@ -65,7 +65,7 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
         })
     }
 
-    fun recyclerMovies(movie: List<Movie>) {
+    private fun recyclerMovies(movie: List<Movie>) {
         binding.recyclerViewMovies.apply {
             layoutManager = LinearLayoutManager(requireContext())
             hasFixedSize()

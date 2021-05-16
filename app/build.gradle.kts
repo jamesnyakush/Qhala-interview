@@ -18,7 +18,7 @@ android {
         versionCode = AndroidSDK.versionCode
         versionName = AndroidSDK.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.qhala.HiltTestRunner"
 
         kapt {
             arguments {
@@ -44,13 +44,12 @@ android {
         }
     }
 
-
-
     externalNativeBuild {
         cmake {
             path("CMakeLists.txt")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -112,6 +111,37 @@ dependencies {
     implementation(Libraries.roomKtx)
     implementation(Libraries.roomRuntime)
     kapt(Libraries.roomCompiler)
+
+    // UI Tests
+    androidTestImplementation(TestLibraries.espresso)
+    androidTestImplementation(TestLibraries.kakao)
+
+    // Instrumentation Tests
+    androidTestImplementation(TestLibraries.runner)
+    androidTestImplementation(TestLibraries.rules)
+    androidTestImplementation(TestLibraries.androidXJUnit)
+    androidTestImplementation(TestLibraries.androidXTestCore)
+    androidTestImplementation(TestLibraries.androidMockK)
+    androidTestImplementation(TestLibraries.hiltAndroidTesting)
+    kaptAndroidTest(TestLibraries.hiltAndroidCompiler)
+
+    // Unit Tests
+    testImplementation(TestLibraries.jUnit)
+    testImplementation(TestLibraries.roomTest)
+    testImplementation(TestLibraries.mockK)
+    testImplementation(TestLibraries.mockWebServer)
+    testImplementation(TestLibraries.roboelectric)
+    testImplementation(TestLibraries.truth)
+    testImplementation(TestLibraries.runner)
+    testImplementation(TestLibraries.androidXJUnit)
+    testImplementation(TestLibraries.coroutinesTest)
+    testImplementation(TestLibraries.archComponentTest)
+    testImplementation(TestLibraries.liveDataTesting)
+    testImplementation(TestLibraries.hiltAndroidTesting)
+    kaptTest(TestLibraries.hiltAndroidCompiler)
+
+
+    debugImplementation(TestLibraries.fragment)
 }
 
 kapt {
