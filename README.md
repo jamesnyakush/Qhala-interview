@@ -1,5 +1,5 @@
 ## Qhala Interview :movie_camera: :tv:
-[![codebeat badge](https://codebeat.co/badges/9f7bb947-8983-4c30-9f0a-93a5d36a5d17)](https://codebeat.co/projects/github-com-jamesnyakush-qhala-interview-master)
+[![codebeat badge](https://codebeat.co/badges/9f7bb947-8983-4c30-9f0a-93a5d36a5d17)](https://codebeat.co/projects/github-com-jamesnyakush-qhala-interview-master) [![Maintainability](https://api.codeclimate.com/v1/badges/9c2ee7a00cefe2980f2d/maintainability)](https://codeclimate.com/github/jamesnyakush/Qhala-interview/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/9c2ee7a00cefe2980f2d/test_coverage)](https://codeclimate.com/github/jamesnyakush/Qhala-interview/test_coverage)
 
 ## Screenshots
 | Movies | Movie Detail |
