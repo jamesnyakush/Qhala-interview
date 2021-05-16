@@ -18,6 +18,7 @@ I used CMake  to Secure Api Key :relaxed:
  $ cd app/src/main/cpp
  $ cp  native-lib.cpp.sample  native-lib.cpp
 ```
+
 ## Tech-stack
 
 * Tech-stack
@@ -45,7 +46,16 @@ I used CMake  to Secure Api Key :relaxed:
 * CI/CD
     * Github Actions 
     
-    
+## Work plan 
+
+I created an automated [Kanban](https://github.com/jamesnyakush/Qhala-interview/projects/1) on the Github projects for agile development.
+
+![Work plan](/art/kabana.png)    
+
+## Unit Test
+Ui Testing 
+![Unit Test](/art/uitest.png)
+
 ## Room Database Inspector
 
 This is How data is being Stored to Room db.

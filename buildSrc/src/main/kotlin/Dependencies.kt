@@ -1,5 +1,4 @@
 object Versions {
-
     const val kotlin = "1.3.72"
     const val buildToolsVersion = "4.0.1"
     const val appcompat = "1.1.0"
@@ -13,21 +12,26 @@ object Versions {
     const val retrofit = "2.6.0"
     const val timber = "4.7.1"
     const val preference = "1.0.0-alpha05"
-    const val okHttp = "4.10.0-RC1"
     const val hiltVersion = "2.35.1"
     const val glide = "4.12.0"
     const val room = "2.2.5"
 
-    const val junit4 = "4.13.1"
-    const val testRunner = "1.1.0"
-    const val rules = "1.1.0"
+    // tests
+    const val junit = "4.13"
+    const val junitTest = "1.1.2"
     const val espresso = "3.3.0"
-    const val annotation = "1.2.0-alpha01"
-    const val mockk = "1.10.2"
-    const val kakao = "2.4.0"
-    const val archCore = "2.1.0"
-    const val core = "1.3.1-alpha02"
-    const val fragmentsTesting = "1.3.0-beta01"
+    const val roboelectric = "4.4-beta-1"
+    const val androidXJUnit = "1.1.1"
+    const val truth = "1.0.1"
+    const val mockWebServer = "4.8.1"
+    const val androidXTestCore = "1.3.0"
+    const val runner = "1.3.0"
+    const val rules = "1.3.0"
+    const val archComponentTest = "2.1.0"
+    const val kakao = "2.3.4"
+    const val mockK = "1.10.0"
+    const val liveDataTesting = "1.1.2"
+    const val fragmentTesting = "1.3.3"
 
 }
 
@@ -103,25 +107,37 @@ object Libraries {
 
 }
 
+object TestLibraries {
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val jUnit = "junit:junit:${Versions.junit}"
+    const val jUnitTest = "androidx.test.ext:junit:${Versions.junitTest}"
+    const val roboelectric = "org.robolectric:robolectric:${Versions.roboelectric}"
+    const val androidXJUnit = "androidx.test.ext:junit:${Versions.androidXJUnit}"
+    const val truth = "com.google.truth:truth:${Versions.truth}"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
+    const val androidXTestCore = "androidx.test:core:${Versions.androidXTestCore}"
+    const val runner = "androidx.test:runner:${Versions.runner}"
+    const val rules = "androidx.test:rules:${Versions.rules}"
+    const val roomTest = "androidx.room:room-testing:${Versions.room}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val archComponentTest =
+        "androidx.arch.core:core-testing:${Versions.archComponentTest}"
+    const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
+    const val mockK = "io.mockk:mockk:${Versions.mockK}"
+    const val androidMockK = "io.mockk:mockk-android:${Versions.mockK}"
+    const val liveDataTesting = "com.jraska.livedata:testing-ktx:${Versions.liveDataTesting}"
+    const val hiltAndroidTesting = "com.google.dagger:hilt-android-testing:${Versions.hiltVersion}"
+    const val hiltAndroidCompiler =
+        "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
+
+    const val  fragment = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+}
+
 
 object AndroidSDK {
     const val minSdkVersion = 26
     const val targetSdkVersion = 29
     const val versionCode = 1
     const val versionName = "1.0"
-}
-
-object TestLibraries {
-    const val junit4 = "junit:junit:${Versions.junit4}"
-    const val testRunner = "androidx.test.ext:junit:${Versions.testRunner}"
-    const val testRules = "androidx.test:rules:${Versions.rules}"
-    const val mockk = "io.mockk:mockk:${Versions.mockk}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-    const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
-    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
-    const val archCore = "androidx.arch.core:core-testing:${Versions.archCore}"
-    const val core = "androidx.test:core:${Versions.core}"
-    const val fragment = "androidx.fragment:fragment-testing:${Versions.fragmentsTesting}"
-    const val kakao = "com.agoda.kakao:kakao:${Versions.kakao}"
-    const val mockServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
 }
