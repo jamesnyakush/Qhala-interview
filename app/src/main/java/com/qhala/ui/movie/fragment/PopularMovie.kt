@@ -35,6 +35,7 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
         viewModel.fetchMovies(Keys.apiKey())
 
         observeMoviesOffline()
+
     }
 
 
@@ -45,8 +46,9 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
                     lifecycleScope.launch {
 
                         viewModel.saveMovie(it.value.results)
-
+                      
                         recyclerMovies(it.value.results)
+
                     }
                 }
                 is Resource.Failure -> {
@@ -70,5 +72,4 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
             adapter = MovieAdapter(movie)
         }
     }
-
 }
