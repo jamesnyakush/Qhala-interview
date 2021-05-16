@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qhala.R
+import com.qhala.data.db.entity.Movie
 import com.qhala.data.repository.Resource
 import com.qhala.databinding.PopularMovieFragmentBinding
 import com.qhala.ui.movie.adapter.MovieAdapter
@@ -33,8 +34,10 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
         observeMovies()
         viewModel.fetchMovies(Keys.apiKey())
 
+        observeMoviesOffline()
 
     }
+
 
     private fun observeMovies() {
         viewModel.movieResponse.observe(viewLifecycleOwner, Observer {
@@ -43,14 +46,9 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
                     lifecycleScope.launch {
 
                         viewModel.saveMovie(it.value.results)
+                      
+                        recyclerMovies(it.value.results)
 
-                        binding.recyclerViewMovies.apply {
-                            layoutManager = LinearLayoutManager(requireContext())
-                            hasFixedSize()
-                            adapter = MovieAdapter(it.value.results)
-                        }
-
-                        viewModel.fetchMoviesOffline()
                     }
                 }
                 is Resource.Failure -> {
@@ -61,4 +59,17 @@ class PopularMovie : Fragment(R.layout.popular_movie_fragment) {
         })
     }
 
+    private fun observeMoviesOffline() {
+        viewModel.fetchMoviesOffline.observe(viewLifecycleOwner, {
+            recyclerMovies(it)
+        })
+    }
+
+    fun recyclerMovies(movie: List<Movie>) {
+        binding.recyclerViewMovies.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            hasFixedSize()
+            adapter = MovieAdapter(movie)
+        }
+    }
 }

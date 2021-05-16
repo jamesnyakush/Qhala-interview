@@ -21,6 +21,7 @@ class MovieViewModel @Inject constructor(
     val movieResponse: LiveData<Resource<MovieResponse>>
         get() = _movieResponse
 
+
     val darkThemeEnabled = prefsStore.isNightMode().asLiveData()
 
     fun fetchMovies(key: String) = viewModelScope.launch {
@@ -32,9 +33,8 @@ class MovieViewModel @Inject constructor(
         repository.saveMovie(movies)
     }
 
-    fun fetchMoviesOffline() {
-        repository.fetchMovies()
-    }
+    var fetchMoviesOffline = repository.fetchMovies().asLiveData()
+
 
     fun toggleNightMode() {
         viewModelScope.launch {

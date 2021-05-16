@@ -113,3 +113,7 @@ dependencies {
     implementation(Libraries.roomRuntime)
     kapt(Libraries.roomCompiler)
 }
+
+kapt {
+    correctErrorTypes = true
+}
