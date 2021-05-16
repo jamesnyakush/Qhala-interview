@@ -1,4 +1,5 @@
-## Qhala Interview
+## Qhala Interview :movie_camera: :tv:
+[![codebeat badge](https://codebeat.co/badges/9f7bb947-8983-4c30-9f0a-93a5d36a5d17)](https://codebeat.co/projects/github-com-jamesnyakush-qhala-interview-master)
 
 ## Screenshots
 | Movies | Movie Detail |

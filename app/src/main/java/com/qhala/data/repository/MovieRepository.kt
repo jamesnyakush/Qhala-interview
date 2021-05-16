@@ -3,6 +3,7 @@ package com.qhala.data.repository
 import com.qhala.data.db.dao.MovieDao
 import com.qhala.data.db.entity.Movie
 import com.qhala.data.network.ApiClient
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(
@@ -18,7 +19,7 @@ class MovieRepository @Inject constructor(
         dao.saveMovie(movies)
     }
 
-    fun fetchMovies() {
-        dao.getMovies()
+    fun fetchMovies(): Flow<List<Movie>> {
+        return dao.getMovies()
     }
 }
