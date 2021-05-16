@@ -5,8 +5,6 @@ plugins {
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
     id(BuildPlugins.extensions)
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -99,8 +97,6 @@ dependencies {
 
     // Dagger Hilt
     implementation(Libraries.hiltAndroid)
-    implementation("com.google.firebase:firebase-crashlytics:17.4.1")
-    implementation("com.google.firebase:firebase-analytics:18.0.3")
     kapt(Libraries.hiltAndroidCompiler)
 
     // Timber For Logging
@@ -116,4 +112,8 @@ dependencies {
     implementation(Libraries.roomKtx)
     implementation(Libraries.roomRuntime)
     kapt(Libraries.roomCompiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
