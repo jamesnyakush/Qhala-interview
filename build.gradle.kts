@@ -11,6 +11,7 @@ buildscript {
         classpath(BuildPlugins.kotlinBuildPlugin)
         classpath(BuildPlugins.safeArgsGradlePlugin)
         classpath(BuildPlugins.hiltBuildPlugin)
+        classpath("org.jacoco:org.jacoco.core:0.8.4")
     }
 }
 

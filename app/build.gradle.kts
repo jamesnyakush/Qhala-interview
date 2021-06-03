@@ -5,6 +5,7 @@ plugins {
     id(BuildPlugins.safeArgs)
     id(BuildPlugins.hilt)
     id(BuildPlugins.extensions)
+    id("jacoco")
 }
 
 android {
@@ -17,6 +18,8 @@ android {
         targetSdkVersion(AndroidSDK.targetSdkVersion)
         versionCode = AndroidSDK.versionCode
         versionName = AndroidSDK.versionName
+
+       // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         testInstrumentationRunner = "com.qhala.HiltTestRunner"
 
@@ -40,7 +43,7 @@ android {
         }
 
         getByName("debug") {
-
+            //testCoverageEnabled =true
         }
     }
 
@@ -50,6 +53,19 @@ android {
         }
     }
 
+    testOptions {
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        animationsDisabled = true
+        unitTests.apply {
+            isReturnDefaultValues = true
+            isIncludeAndroidResources = true
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -57,10 +73,6 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-
-    buildFeatures {
-        viewBinding = true
     }
 }
 
@@ -142,6 +154,61 @@ dependencies {
 
 
     debugImplementation(TestLibraries.fragment)
+}
+
+task<JacocoReport>("mergedJacocoReport") {
+    dependsOn("testDebugUnitTest", "createDebugCoverageReport")
+
+    reports {
+        xml.isEnabled = false
+        html.isEnabled = false
+    }
+
+    val fileFilter = mutableSetOf(
+        "**/R.class",
+        "**/R\$*.class",
+        "**/BuildConfig.*",
+        "**/Manifest*.*",
+        "**/*Test*.*",
+        "android/**/*.*",
+        "**/*\$Lambda$*.*", // Jacoco can not handle several "$" in class name.
+        "**/*\$inlined$*.*" // Kotlin specific, Jacoco can not handle several "$" in class name.
+    )
+
+    classDirectories.setFrom(
+        fileTree(project.buildDir) {
+            include(
+                "**/classes/**/main/**",
+                "**/intermediates/classes/debug/**",
+                "**/intermediates/javac/debug/*/classes/**", // Android Gradle Plugin 3.2.x support.
+                "**/tmp/kotlin-classes/debug/**"
+            )
+
+            exclude(fileFilter)
+        }
+    )
+
+    sourceDirectories.setFrom(
+        fileTree("${project.buildDir}") {
+            include(
+                "src/main/java/**",
+                "src/main/kotlin/**",
+                "src/debug/java/**",
+                "src/debug/kotlin/**"
+            )
+        }
+    )
+
+    executionData.setFrom(
+        fileTree(project.buildDir) {
+            include(
+                "outputs/code_coverage/**/*.ec",
+                "jacoco/jacocoTestReportDebug.exec",
+                "jacoco/testDebugUnitTest.exec",
+                "jacoco/test.exec"
+            )
+        }
+    )
 }
 
 kapt {

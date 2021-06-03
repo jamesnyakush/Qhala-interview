@@ -24,7 +24,10 @@ class Movie : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = MovieActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
+    override fun onStart() {
+        super.onStart()
         observeDarkTheme()
     }
 
